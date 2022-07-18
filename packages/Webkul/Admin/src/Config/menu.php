@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Param and their desciption
+ * key: unique key for menu icon,
+ * name: name of menu icon,
+ * route: route name for your menu icon,
+ * sort: sort number on which your menu icon should display,
+ * icon-class: class for menu icon
+ * **/
+
 return [
     [
         'key'        => 'dashboard',
@@ -13,13 +22,37 @@ return [
         'route'      => 'admin.leads.index',
         'sort'       => 2,
         'icon-class' => 'leads-icon',
-    ], [
-        'key'        => 'quotes',
-        'name'       => 'admin::app.layouts.quotes',
-        'route'      => 'admin.quotes.index',
+    ],
+
+    // Sales Menu
+    [
+        'key'        => 'sales',
+        'name'       => 'admin::app.layouts.sales.title',
+        'route'      => 'admin.sales.index',
         'sort'       => 3,
         'icon-class' => 'quotes-icon',
+    ],
+    [
+        'key'        => 'sales.quotes',
+        'name'       => 'admin::app.layouts.quotes',
+        'route'      => 'admin.quotes.index',
+        'sort'       => 1,
     ], [
+        'key'        => 'sales.orders',
+        'name'       => 'admin::app.layouts.sales.sale-order',
+        'route'      => 'admin.sales-order.index',
+        'sort'       => 2,
+    ],
+    // [
+    //     'key'        => 'sales.shipping.orders',
+    //     'name'       => 'admin::app.layouts.sales.ship-order',
+    //     'route'      => 'admin.sales.index',
+    //     'params'     => ['route' => 'shipOrders'],
+    //     'sort'       => 3,
+    // ],
+
+    // Mail Menu
+    [
         'key'        => 'mail',
         'name'       => 'admin::app.layouts.mail.title',
         'route'      => 'admin.mail.index',

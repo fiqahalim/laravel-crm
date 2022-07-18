@@ -25,7 +25,7 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::get('mail/inbound-parse', 'Webkul\Admin\Http\Controllers\Mail\EmailController@inboundParse')->name('admin.mail.inbound_parse');
 
-        // Admin Routes
+        /** ADMIN ROUTES**/
         Route::group(['middleware' => ['user']], function () {
             Route::get('logout', 'Webkul\Admin\Http\Controllers\User\SessionController@destroy')->name('admin.session.destroy');
 
@@ -95,7 +95,73 @@ Route::group(['middleware' => ['web']], function () {
                 });
             });
 
-            // Leads Routes
+            // New Sales
+            Route::group([
+                'prefix'    => 'sales',
+                'namespace' => 'Webkul\Admin\Http\Controllers\Sales',
+            ], function () {
+                Route::get('', 'SaleController@index')->name('admin.sales.index');
+
+                Route::get('create/{id?}', 'SaleController@create')->name('admin.sales.create');
+
+                Route::post('create', 'SaleController@store')->name('admin.sales.store');
+
+                Route::get('edit/{id?}', 'SaleController@edit')->name('admin.sales.edit');
+
+                Route::put('edit/{id}', 'SaleController@update')->name('admin.sales.update');
+
+                Route::get('print/{id?}', 'SaleController@print')->name('admin.sales.print');
+
+                Route::delete('{id}', 'SaleController@destroy')->name('admin.sales.delete');
+
+                Route::put('mass-destroy', 'SaleController@massDestroy')->name('admin.sales.mass_delete');
+            });
+
+            // Sales Order
+            Route::group([
+                'prefix'    => 'sales-order',
+                'namespace' => 'Webkul\Admin\Http\Controllers\Sales',
+            ], function () {
+                Route::get('', 'SaleOrderController@index')->name('admin.sales-order.index');
+
+                Route::get('create/{id?}', 'SaleOrderController@create')->name('admin.sales-order.create');
+
+                Route::post('create', 'SaleOrderController@store')->name('admin.sales-order.store');
+
+                Route::get('edit/{id?}', 'SaleOrderController@edit')->name('admin.sales-order.edit');
+
+                Route::put('edit/{id}', 'SaleOrderController@update')->name('admin.sales-order.update');
+
+                Route::get('print/{id?}', 'SaleOrderController@print')->name('admin.sales-order.print');
+
+                Route::delete('{id}', 'SaleOrderController@destroy')->name('admin.sales-order.delete');
+
+                Route::put('mass-destroy', 'SaleOrderController@massDestroy')->name('admin.sales-order.mass_delete');
+            });
+
+            // New Purchases
+            Route::group([
+                'prefix'    => 'purchases',
+                'namespace' => 'Webkul\Admin\Http\Controllers\Purchase',
+            ], function () {
+                Route::get('', 'PurchaseController@index')->name('admin.purchases.index');
+
+                Route::get('create/{id?}', 'PurchaseController@create')->name('admin.purchases.create');
+
+                Route::post('create', 'PurchaseController@store')->name('admin.purchases.store');
+
+                Route::get('edit/{id?}', 'PurchaseController@edit')->name('admin.purchases.edit');
+
+                Route::put('edit/{id}', 'PurchaseController@update')->name('admin.purchases.update');
+
+                Route::get('print/{id?}', 'PurchaseController@print')->name('admin.purchases.print');
+
+                Route::delete('{id}', 'PurchaseController@destroy')->name('admin.purchases.delete');
+
+                Route::put('mass-destroy', 'PurchaseController@massDestroy')->name('admin.purchases.mass_delete');
+            });
+
+            // Qoutations Routes
             Route::group([
                 'prefix'    => 'quotes',
                 'namespace' => 'Webkul\Admin\Http\Controllers\Quote',
@@ -117,6 +183,7 @@ Route::group(['middleware' => ['web']], function () {
                 Route::put('mass-destroy', 'QuoteController@massDestroy')->name('admin.quotes.mass_delete');
             });
 
+            // Activity Routes
             Route::group([
                 'prefix'    => 'activities',
                 'namespace' => 'Webkul\Admin\Http\Controllers\Activity',
@@ -146,6 +213,7 @@ Route::group(['middleware' => ['web']], function () {
                 Route::put('mass-destroy', 'ActivityController@massDestroy')->name('admin.activities.mass_delete');
             });
 
+            // Mail
             Route::group([
                 'prefix'    => 'mail',
                 'namespace' => 'Webkul\Admin\Http\Controllers\Mail',
@@ -231,7 +299,7 @@ Route::group(['middleware' => ['web']], function () {
                 Route::put('mass-destroy', 'ProductController@massDestroy')->name('admin.products.mass_delete');
             });
 
-            // Contacts Routes
+            // Settings Routes
             Route::group([
                 'prefix'    => 'settings',
                 'namespace' => 'Webkul\Admin\Http\Controllers\Setting'

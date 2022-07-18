@@ -28,22 +28,89 @@ Breadcrumbs::for('leads.view', function (BreadcrumbTrail $trail, $lead) {
 });
 
 
-// Dashboard > Quotes
-Breadcrumbs::for('quotes', function (BreadcrumbTrail $trail) {
+// Dashboard > Sales
+Breadcrumbs::for('sales', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
+    $trail->push(trans('admin::app.layouts.sales.title'), route('admin.sales.index'));
+});
+
+// Dashboard > Sales > Create Sales
+Breadcrumbs::for('sales.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('sales');
+    $trail->push(trans('admin::app.sales.create-title'), route('admin.sales.create'));
+});
+
+// Dashboard > Sales > Edit Sales
+Breadcrumbs::for('sales.edit', function (BreadcrumbTrail $trail, $quote) {
+    $trail->parent('sales');
+    $trail->push(trans('admin::app.sales.edit-title'), route('admin.sales.edit', $quote->id));
+});
+
+// Dashboard > Sales > Title
+Breadcrumbs::for('sales.view', function (BreadcrumbTrail $trail, $lead) {
+    $trail->parent('sales');
+    $trail->push($lead->title, route('admin.sales.view', $lead->id));
+});
+
+// Dashboard > Sales > Quotes
+Breadcrumbs::for('quotes', function (BreadcrumbTrail $trail) {
+    $trail->parent('sales');
     $trail->push(trans('admin::app.layouts.quotes'), route('admin.quotes.index'));
 });
 
-// Dashboard > Quotes > Add Quote
+// Dashboard > Sales > Quotes > Add Quote
 Breadcrumbs::for('quotes.create', function (BreadcrumbTrail $trail) {
     $trail->parent('quotes');
     $trail->push(trans('admin::app.quotes.create-title'), route('admin.quotes.create'));
 });
 
-// Dashboard > Quotes > Edit Quote
+// Dashboard > Sales > Quotes > Edit Quote
 Breadcrumbs::for('quotes.edit', function (BreadcrumbTrail $trail, $quote) {
     $trail->parent('quotes');
     $trail->push(trans('admin::app.quotes.edit-title'), route('admin.quotes.edit', $quote->id));
+});
+
+// Dashboard > Sales > Sales Order
+Breadcrumbs::for('sales-order', function (BreadcrumbTrail $trail) {
+    $trail->parent('sales');
+    $trail->push(trans('admin::app.layouts.sales.sale-order'), route('admin.sales-order.index'));
+});
+
+// Dashboard > Sales > Sales Order > Add Sales Order
+Breadcrumbs::for('sales-order.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('sales-order');
+    $trail->push(trans('admin::app.sales.sales-order.create-title'), route('admin.sales-order.create'));
+});
+
+// Dashboard > Sales > Sales Order > Edit Sales Order
+Breadcrumbs::for('sales-order.edit', function (BreadcrumbTrail $trail, $quote) {
+    $trail->parent('sales-order');
+    $trail->push(trans('admin::app.sales.sales-order.edit-title'), route('admin.sales-order.edit', $quote->id));
+});
+
+
+// Dashboard > Purchases
+Breadcrumbs::for('purchases', function (BreadcrumbTrail $trail) {
+    $trail->parent('dashboard');
+    $trail->push(trans('admin::app.layouts.purchases'), route('admin.purchases.index'));
+});
+
+// Dashboard > Purchases > Create Purchases
+Breadcrumbs::for('purchases.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('purchases');
+    $trail->push(trans('admin::app.purchases.create-title'), route('admin.purchases.create'));
+});
+
+// Dashboard > Purchases > Edit Purchases
+Breadcrumbs::for('purchases.edit', function (BreadcrumbTrail $trail, $quote) {
+    $trail->parent('purchases');
+    $trail->push(trans('admin::app.purchases.edit-title'), route('admin.purchases.edit', $quote->id));
+});
+
+// Dashboard > Purchases > Title
+Breadcrumbs::for('purchases.view', function (BreadcrumbTrail $trail, $lead) {
+    $trail->parent('purchases');
+    $trail->push($lead->title, route('admin.purchases.view', $lead->id));
 });
 
 
