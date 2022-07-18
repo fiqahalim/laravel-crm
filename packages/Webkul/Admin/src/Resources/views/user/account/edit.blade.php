@@ -46,7 +46,7 @@
                                 type="checkbox"
                                 name="remove_image"
                             />
-			                <label for="remove" class="">
+			                <label for="remove" class="mb-3">
                                 {{ __('admin::app.user.account.remove-image') }}
                             </label>
                 
