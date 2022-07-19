@@ -133,12 +133,16 @@
         ],
 
         'currencies' => [
+            'id'              => 'ID',
             'title'           => 'Foreign Currency',
             'currency-name'   => 'Foreign Currency Name',
             'currency-code'   => 'Foreign Currency Code',
             'fx-rate'         => 'F/X Rate',
             'decimal'         => 'Decimal',
-            'status'          => 'Active',
+            'status'          => 'Status',
+            'active'          => 'Active',
+            'inactive'        => 'Inactive',
+            'created_at'      => 'Created Date',
             'create-title'    => 'Create Currency',
             'edit-title'      => 'Edit Currency',
             'save-btn-title'  => 'Save Currency',

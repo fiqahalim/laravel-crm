@@ -16,10 +16,10 @@ class CreateCurrenciesTable extends Migration
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
             $table->string('currency_name');
-            $table->string('currency_code');
-            $table->decimal('fx_rate');
-            $table->string('decimal');
-            $table->string('status');
+            $table->string('currency_code')->nullable();
+            $table->decimal('fx_rate')->nullable();
+            $table->string('decimal')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
