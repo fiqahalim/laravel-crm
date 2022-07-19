@@ -41,6 +41,7 @@ class AdminServiceProvider extends ServiceProvider
             'persons'       => 'Webkul\Contact\Models\Person',
             'organizations' => 'Webkul\Contact\Models\Organization',
             'quotes'        => 'Webkul\Quote\Models\Quote',
+            'currencies'    => 'Webkul\Setup\Models\Currency',
         ]);
 
         $this->app->register(EventServiceProvider::class);

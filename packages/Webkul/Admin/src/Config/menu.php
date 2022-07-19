@@ -131,7 +131,10 @@ return [
         'route'      => 'admin.products.index',
         'sort'       => 7,
         'icon-class' => 'products-icon',
-    ], [
+    ],
+
+    // Settings Menu
+    [
         'key'        => 'settings',
         'name'       => 'admin::app.layouts.settings',
         'route'      => 'admin.settings.index',
@@ -230,9 +233,19 @@ return [
         'name'       => 'admin::app.layouts.tags',
         'info'       => 'admin::app.layouts.tags-info',
         'route'      => 'admin.settings.tags.index',
-        'sort'       => 1,
+        'sort'       => 2,
         'icon-class' => 'tag-icon',
     ], [
+        'key'        => 'settings.other_settings.currencies',
+        'name'       => 'admin::app.layouts.currencies',
+        'info'       => 'admin::app.layouts.currencies-info',
+        'route'      => 'admin.settings.currencies.index',
+        'sort'       => 1,
+        'icon-class' => 'dollar-circle-icon',
+    ],
+
+    // Configuration Menu
+    [
         'key'        => 'configuration',
         'name'       => 'admin::app.layouts.configuration',
         'route'      => 'admin.configuration.index',

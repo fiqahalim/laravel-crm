@@ -196,7 +196,10 @@ return [
         'name'  => 'admin::app.acl.delete',
         'route' => ['admin.products.delete', 'admin.products.mass_delete'],
         'sort'  => 3,
-    ], [
+    ],
+
+    // Settings Menu
+    [
         'key'   => 'settings',
         'name'  => 'admin::app.acl.settings',
         'route' => 'admin.settings.index',
@@ -421,7 +424,10 @@ return [
         'name'  => 'admin::app.acl.delete',
         'route' => ['admin.settings.tags.delete', 'admin.settings.tags.mass_delete', 'admin.leads.tags.delete'],
         'sort'  => 2,
-    ], [
+    ],
+
+    // Configuration Menu
+    [
         'key'   => 'configuration',
         'name'  => 'admin::app.acl.configuration',
         'route' => 'admin.configuration.index',

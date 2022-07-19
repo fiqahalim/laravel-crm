@@ -386,6 +386,18 @@ Breadcrumbs::for('settings.tags.edit', function (BreadcrumbTrail $trail, $tag) {
     $trail->push(trans('admin::app.settings.tags.edit-title'), route('admin.settings.tags.edit', $tag->id));
 });
 
+// Settings > Currencies
+Breadcrumbs::for('settings.currencies', function (BreadcrumbTrail $trail) {
+    $trail->parent('settings');
+    $trail->push(trans('admin::app.currencies.title'), route('admin.settings.currencies.index'));
+});
+
+// Dashboard > Currencies > Edit Currencies
+Breadcrumbs::for('settings.currencies.edit', function (BreadcrumbTrail $trail, $tag) {
+    $trail->parent('settings.currencies');
+    $trail->push(trans('admin::app.currencies.edit-title'), route('admin.settings.currencies.edit', $tag->id));
+});
+
 
 // Configuration
 Breadcrumbs::for('configuration', function (BreadcrumbTrail $trail) {

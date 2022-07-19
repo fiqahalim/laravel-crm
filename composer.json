@@ -61,7 +61,9 @@
             "Webkul\\Tag\\": "packages/Webkul/Tag/src",
             "Webkul\\UI\\": "packages/Webkul/UI/src",
             "Webkul\\User\\": "packages/Webkul/User/src",
-            "Webkul\\Workflow\\": "packages/Webkul/Workflow/src"
+            "Webkul\\Workflow\\": "packages/Webkul/Workflow/src",
+            "Webkul\\Setup\\": "packages/Webkul/Setup/src",
+            "Webkul\\Sale\\": "packages/Webkul/Sale/src"
         }
     },
     "autoload-dev": {

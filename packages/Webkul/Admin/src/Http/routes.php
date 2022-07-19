@@ -472,6 +472,23 @@ Route::group(['middleware' => ['web']], function () {
 
                     Route::put('mass-destroy', 'TagController@massDestroy')->name('admin.settings.tags.mass_delete');
                 });
+
+                // Currencies
+                Route::prefix('currencies')->group(function () {
+                    Route::get('', 'CurrencyController@index')->name('admin.settings.currencies.index');
+
+                    Route::post('create', 'CurrencyController@store')->name('admin.settings.currencies.store');
+
+                    Route::get('edit/{id?}', 'CurrencyController@edit')->name('admin.settings.currencies.edit');
+
+                    Route::put('edit/{id}', 'CurrencyController@update')->name('admin.settings.currencies.update');
+
+                    Route::get('search', 'CurrencyController@search')->name('admin.settings.currencies.search');
+
+                    Route::delete('{id}', 'CurrencyController@destroy')->name('admin.settings.currencies.delete');
+
+                    Route::put('mass-destroy', 'CurrencyController@massDestroy')->name('admin.settings.currencies.mass_delete');
+                });
             });
 
             // Configuration Routes
