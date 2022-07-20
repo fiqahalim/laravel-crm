@@ -109,7 +109,8 @@ class Dashboard
         PersonRepository $personRepository,
         ActivityRepository $activityRepository,
         UserRepository $userRepository,
-        EmailRepository $emailRepository
+        EmailRepository $emailRepository,
+        CurrencyRepository $currencyRepository
     ) {
         $this->leadRepository = $leadRepository;
 
@@ -128,6 +129,8 @@ class Dashboard
         $this->userRepository = $userRepository;
 
         $this->emailRepository = $emailRepository;
+
+        $this->currencyRepository = $currencyRepository;
     }
 
     /**

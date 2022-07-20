@@ -17,5 +17,6 @@ class Currency extends Model implements CurrencyContract
         'currency_code',
         'fx_rate',
         'decimal',
+        'status',
     ];
 }

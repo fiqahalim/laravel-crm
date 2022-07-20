@@ -25,4 +25,8 @@ return [
         'name'       => 'Quote',
         'repository' => 'Webkul\Quote\Repositories\QuoteRepository',
     ],
+    'currencies'  => [
+        'name'          => 'Foreign Currency',
+        'repository'    => 'Webkul\Setup\Repositories\CurrencyRepository',
+    ],
 ];

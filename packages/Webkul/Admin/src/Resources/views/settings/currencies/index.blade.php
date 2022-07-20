@@ -4,40 +4,6 @@
     {{ __('admin::app.currencies.title') }}
 @stop
 
-@section('css')
-    <style>
-        .color-item {
-            position: relative;
-            display: inline-block;
-            margin: 10px 5px 5px 0px;
-        }
-
-        .color-item input {
-            position: absolute;
-            top: 4px;
-            left: 1px;
-            opacity: 0;
-            z-index: 100;
-            cursor: pointer;
-        }
-
-        .color-item label {
-            width: 25px;
-            height: 25px;
-            margin-right: 3px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: inline-block;
-            box-shadow: 0px 4px 15.36px 0.75px rgb(0 0 0 / 10%), 0px 2px 6px 0px rgb(0 0 0 / 15%);
-            transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .color-item input:checked + label {
-            border: solid 3px #FFFFFF;
-        }
-    </style>
-@stop
-
 @section('content-wrapper')
     <div class="content full-page">
         <table-component data-src="{{ route('admin.settings.currencies.index') }}">
@@ -63,39 +29,39 @@
 
     <form action="{{ route('admin.settings.currencies.store') }}" method="POST" @submit.prevent="onSubmit">
         <modal id="addTagModal" :is-open="modalIds.addTagModal">
-            <h3 slot="header-title">{{ __('admin::app.settings.tags.create-title') }}</h3>
+            <h3 slot="header-title">{{ __('admin::app.currencies.create-title') }}</h3>
 
             <div slot="header-actions">
-                {!! view_render_event('admin.settings.tags.create.form_buttons.before') !!}
+                {!! view_render_event('admin.settings.currencies.create.form_buttons.before') !!}
 
-                <button class="btn btn-sm btn-secondary-outline" @click="closeModal('addTagModal')">{{ __('admin::app.settings.tags.cancel') }}</button>
+                <button class="btn btn-sm btn-secondary-outline" @click="closeModal('addTagModal')">{{ __('admin::app.currencies.cancel') }}</button>
 
-                <button type="submit" class="btn btn-sm btn-primary">{{ __('admin::app.settings.tags.save-btn-title') }}</button>
+                <button type="submit" class="btn btn-sm btn-primary">{{ __('admin::app.currencies.save-btn-title') }}</button>
 
-                {!! view_render_event('admin.settings.tags.create.form_buttons.after') !!}
+                {!! view_render_event('admin.settings.currencies.create.form_buttons.after') !!}
             </div>
 
             <div slot="body">
-                {!! view_render_event('admin.settings.tags.create.form_controls.before') !!}
+                {!! view_render_event('admin.settings.currencies.create.form_controls.before') !!}
 
                 @csrf()
 
-                <div class="form-group" :class="[errors.has('name') ? 'has-error' : '']">
+                <div class="form-group" :class="[errors.has('currency_name') ? 'has-error' : '']">
                     <label class="required">
-                        {{ __('admin::app.settings.tags.name') }}
+                        {{ __('admin::app.currencies.currency-name') }}
                     </label>
 
                     <input
                         type="text"
-                        name="name"
+                        name="currency_name"
                         class="control"
-                        placeholder="{{ __('admin::app.settings.tags.name') }}"
+                        placeholder="{{ __('admin::app.currencies.currency-name') }}"
                         v-validate="'required'"
-                        data-vv-as="{{ __('admin::app.settings.tags.name') }}"
+                        data-vv-as="{{ __('admin::app.currencies.currency-name') }}"
                     />
 
-                    <span class="control-error" v-if="errors.has('name')">
-                        @{{ errors.first('name') }}
+                    <span class="control-error" v-if="errors.has('currency_name')">
+                        @{{ errors.first('currency_name') }}
                     </span>
                 </div>
 
